@@ -39,7 +39,7 @@ STEP 4 INSTALL ALL TOOLS
 
 enter this command and press enter:
 
-sudo pacman -S virt-manager qemu vde2 ebtables iptables-nft nftables dnsmasq bridge-utils ovmf
+pacman -S virt-manager qemu vde2 ebtables iptables-nft nftables dnsmasq bridge-utils ovmf
 
 STEP 5 EDIT CONFIG
 
@@ -109,8 +109,9 @@ Either dump it yourself or find one on https://www.techpowerup.com/vgabios/
 and enter mkdir /var/lib/libvirt/vbios in your terminal to make the directory for the vBios.
 Now move the vBios in that folder and execute these commands:
 
-chmod -R 660 <ROMFILE>.rom
-chown username:username <ROMFILE>.rom
+chmod -R 660 ROM_NAME.rom
+chown username:username ROM_NAME.rom
+
 Now enter this script to get the IDs of the GPU
 
 #!/bin/bash
@@ -137,3 +138,11 @@ done;
   <address type="pci" domain="0x0000" bus="0x06" slot="0x00" function="0x0"/>
   
   Remove spice / qxl stuff in VM
+
+enter these commands to make the hooks for our VM
+
+mkdir -p /etc/libvirt/hooks
+
+sudo wget 'https://raw.githubusercontent.com/PassthroughPOST/VFIO-Tools/master/libvirt_hooks/qemu' \
+     -O /etc/libvirt/hooks/qemu
+sudo chmod +x /etc/libvirt/hooks/qemu
