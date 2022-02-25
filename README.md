@@ -11,6 +11,7 @@ This guide assumes you're using Arch Linux.
 STEP 1 Enabling IOMMU in your BIOS
 
 If you have an Intel CPU, enable VT-d and VT-x
+
 If you have an AMD CPU, enable SVM Mode and IOMMU
 
 once thats done you can move on with step 2:
@@ -22,9 +23,11 @@ and edit the options line to look like this:
 For AMD:
 
 amd_iommu=on iommu=pt iommu=1 video=efifb:off
+
 For Intel:
 
 intel_iommu=on iommu=pt video=efif:off
+
 Now Reboot your PC
 
 STEP 3 Checking IOMMU Groups
@@ -56,6 +59,7 @@ unix_sock_rw_perms = "0770"
 add these line at the end of the file:
 
 log_filters="1:qemu"
+
 log_outputs="1:file:/var/log/libvirt/libvirtd.log"
 
 Save the file and exit the editor
@@ -63,7 +67,9 @@ Save the file and exit the editor
 Now enter these commands (some of them are systemd specific):
 
 sudo usermod -a -G libvirt $(whoami)
+
 sudo systemctl start libvirtd
+
 sudo systemctl enable libvirtd
 
 Now edit this file:
@@ -72,7 +78,9 @@ Now edit this file:
 
 change
 #user = "root" to user = "your username"
+
 and
+
 #group = "root" to group = "your username"
 
 Now restart libvirt:
@@ -82,6 +90,7 @@ sudo systemctl restart libvirtd
 To get networking working enter these commands:
 
 sudo virsh net-autostart default
+
 sudo virsh net-start default
 
 STEP 6 CONFIGURE VIRTUAL MACHINE
@@ -130,6 +139,7 @@ for g in /sys/kernel/iommu_groups/*; do
         echo -e "\t$(lspci -nns ${d##*/})"
     done;
 done;
+
 You can also find it here:
 
 https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Prerequisites
@@ -214,4 +224,4 @@ STEP 8 ENJOY YOUR WINDOWS GAMES
 
 You are now ready to start the vm.
 
-If you are having problems message me on Discord @ Mike12#2308 or create a Reddit post on reddit.com/r/VFIO and mention me in your post and I will try to help.
+If you are having problems message me on Discord @ Mike12#2308 or create a Reddit post on https://old.reddit.com/r/VFIO/ and mention me in your post and I will try to help.
