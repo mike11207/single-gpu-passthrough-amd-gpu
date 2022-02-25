@@ -101,5 +101,31 @@ Change the virtual Network type to virtio and the disk type to virtio aswell
 Now boot into Windows Installer. Once it says it cant find the disk press load driver and navigate to the virtio CD. The drivers are in the folder amd64/w10.
 After that continue the bloatware install
 
-STEP 7
+STEP 7 PREPARATION FOR OUR SCRIPTS
 
+Download the corresponding GPU vBios.
+Either dump it yourself or find one on https://www.techpowerup.com/vgabios/
+
+and enter mkdir /var/lib/libvirt/vbios in your terminal to make the directory for the vBios.
+Now move the vBios in that folder and execute these commands:
+
+chmod -R 660 <ROMFILE>.rom
+chown username:username <ROMFILE>.rom
+Now enter this script to get the IDs of the GPU
+
+#!/bin/bash
+shopt -s nullglob
+for g in /sys/kernel/iommu_groups/*; do
+    echo "IOMMU Group ${g##*/}:"
+    for d in $g/devices/*; do
+        echo -e "\t$(lspci -nns ${d##*/})"
+    done;
+done;
+
+  You will want to find your GPU in there with its Audio component (if it has one)
+  For me these IDs are:
+  08:00.0
+  and
+  08:00.1
+  
+  Now go into virt-manager once more and add the parts of the GPU to the virtual machine
