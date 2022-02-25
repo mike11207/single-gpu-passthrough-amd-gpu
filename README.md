@@ -151,13 +151,19 @@ sudo chmod +x /etc/libvirt/hooks/qemu
 Now you want to create these directories:
 
 /etc/libvirt/hooks/qemu.d
+
 /etc/libvirt/hooks/qemu.d/win10
+
 /etc/libvirt/hooks/qemu.d/win10/prepare
+
 /etc/libvirt/hooks/qemu.d/win10/prepare/begin
+
 /etc/libvirt/hooks/qemu.d/win10/release
+
 /etc/libvirt/hooks/qemu.d/win10/release/end
 
 And make edit these files:
+
 /etc/libvirt/hooks/qemu.d/win10/prepare/begin/start.sh
 
 It should be empty. Now just copy the start script uploaded by me into the file.
