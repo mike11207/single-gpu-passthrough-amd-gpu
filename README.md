@@ -123,20 +123,16 @@ chown username:username ROM_NAME.rom
 Now enter this script to get the IDs of the GPU
 
 #!/bin/bash
-
 shopt -s nullglob
-
 for g in /sys/kernel/iommu_groups/*; do
-
     echo "IOMMU Group ${g##*/}:"
-    
     for d in $g/devices/*; do
-    
         echo -e "\t$(lspci -nns ${d##*/})"
-        
     done;
-    
 done;
+You can also find it here:
+
+https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Prerequisites
 
   You will want to find your GPU in there with its Audio component (if it has one)
   
@@ -162,7 +158,6 @@ enter these commands to make the hooks for our VM
 mkdir -p /etc/libvirt/hooks
 
 sudo wget 'https://raw.githubusercontent.com/PassthroughPOST/VFIO-Tools/master/libvirt_hooks/qemu' \
-
      -O /etc/libvirt/hooks/qemu
      
  and enter:
@@ -191,3 +186,32 @@ It should be empty. Now just copy the start script uploaded by me into the file.
 
 execute this command:
 
+chmod +x /etc/libvirt/hook/qemu.d/win10/prepare/begin/start.sh
+
+To make this script executable.
+
+next edit this file:
+
+/etc/libvirt/hooks/qemu.d/win10/release/end/revert.sh
+
+It should be empty. Now just copy the revert script uploaded by me into the file.
+
+execute this command:
+
+chmod +x /etc/libvirt/hook/qemu.d/win10/release/end/revert.sh
+
+now make another file in /etc/libvirt/hooks/kvm.conf
+
+I remember from running the script earlier that the IDs of my GPU are 8:00.0 and 8:00.1 so I would need to enter:
+
+VIRSH_GPU_VIDEO=pci_0000_08_00_0
+
+VIRSH_GPU_AUDIO=pci_0000_08_00_1
+
+Save the file and exit
+
+STEP 8 ENJOY YOUR WINDOWS GAMES
+
+You are now ready to start the vm.
+
+If you are having problems message me on Discord @ Mike12#2308 or create a Reddit post on reddit.com/r/VFIO and mention me in your post and I will try to help.
