@@ -121,6 +121,8 @@ for g in /sys/kernel/iommu_groups/*; do
         echo -e "\t$(lspci -nns ${d##*/})"
     done;
 done;
+    You can also find it here:
+    https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Prerequisites
 
   You will want to find your GPU in there with its Audio component (if it has one)
   For me these IDs are:
@@ -129,3 +131,9 @@ done;
   08:00.1
   
   Now go into virt-manager once more and add the parts of the GPU to the virtual machine
+  Go into your GPU in virt-manager and add this line:
+  <source>
+  <rom file="/var/lib/libvirt/vbios/GPU.rom"/>    <----THIS ONE
+  <address type="pci" domain="0x0000" bus="0x06" slot="0x00" function="0x0"/>
+  
+  Remove spice / qxl stuff in VM
