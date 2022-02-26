@@ -10,10 +10,6 @@ modprobe -r vfio_iommu_type1
 
 sleep 10
 
-systemctl set-property --runtime -- user.slice AllowedCPUs=0-11
-systemctl set-property --runtime -- system.slice AllowedCPUs=0-11
-systemctl set-property --runtime -- init.scope AllowedCPUs=0-11
-
 virsh nodedev-reattach $VIRSH_GPU_VIDEO
 virsh nodedev-reattach $VIRSH_GPU_AUDIO
 
