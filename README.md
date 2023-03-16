@@ -35,6 +35,11 @@ and edit the options line to look like this:
 
 `intel_iommu=on iommu=pt video=efif:off`
 
+
+You might want to add this line which helps with black screen issues
+
+`intel_iommu=on iommu=pt video=efif:off`
+
 Now Reboot your PC
 
 ## STEP 3 Checking IOMMU Groups
