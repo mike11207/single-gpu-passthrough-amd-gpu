@@ -209,7 +209,7 @@ It should be empty. Now just copy the start script uploaded by me into the file.
 
 execute this command:
 
-`chmod +x /etc/libvirt/hook/qemu.d/win10/prepare/begin/start.sh`
+`chmod +x /etc/libvirt/hooks/qemu.d/win10/prepare/begin/start.sh`
 
 To make this script executable.
 
