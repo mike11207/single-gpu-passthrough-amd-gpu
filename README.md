@@ -38,7 +38,7 @@ and edit the options line to look like this:
 
 You might want to add this line which helps with black screen issues
 
-`intel_iommu=on iommu=pt video=efif:off`
+`disable_idle_d3=1`
 
 Now Reboot your PC
 
