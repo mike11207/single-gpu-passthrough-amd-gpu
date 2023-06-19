@@ -226,7 +226,7 @@ It should be empty. Now just copy the revert script uploaded by me into the file
 
 Execute this command:
 
-`chmod +x /etc/libvirt/hook/qemu.d/win10/release/end/revert.sh`
+`chmod +x /etc/libvirt/hooks/qemu.d/win10/release/end/revert.sh`
 
 Now make another file in `/etc/libvirt/hooks/kvm.conf`
 
