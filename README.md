@@ -155,9 +155,7 @@ for g in /sys/kernel/iommu_groups/*; do
 done;
 ```
 
-You can also find it here:
-
-https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Prerequisites
+You can also find it [here](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Prerequisites)
 
   You will want to find your GPU in there with its Audio component (if it has one)
   
