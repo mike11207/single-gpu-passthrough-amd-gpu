@@ -107,12 +107,16 @@ To get networking working enter these commands:
 
 ## STEP 6 CONFIGURE VIRTUAL MACHINE
 
+## 6.1
 Download the [Windows 10 iso](https://www.microsoft.com/en-us/software-download/windows10ISO) and the [fedoraproject virtio drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.160-1/)
 
+## 6.2
 open virt-manager and create a new VM
 
+## 6.3
 leave the vm name default
 
+## 6.2
 once you see the overview section select the customize before installation box
 
 change the Firmware to `/usr/share/edk2-ovmf/x64/OVMF_CODE.fd`
