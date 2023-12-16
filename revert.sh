@@ -25,4 +25,4 @@ modprobe snd_hda_intel
 
 sleep 3
 
-systemctl start sddm.service
+systemctl start display-manager
