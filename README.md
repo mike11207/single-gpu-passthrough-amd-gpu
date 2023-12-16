@@ -131,7 +131,7 @@ After that continue the bloatware install
 
 Download the corresponding GPU vBios.
 
-Either dump it yourself or find one on https://www.techpowerup.com/vgabios/
+Either dump it yourself using linux (amdvbflash for AMD nvflash for NVIDIA), GPU-Z using Windows or find one on https://www.techpowerup.com/vgabios/
 
 and enter `mkdir /var/lib/libvirt/vbios` in your terminal to make the directory for the vBios.
 
