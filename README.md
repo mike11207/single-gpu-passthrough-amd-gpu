@@ -133,7 +133,9 @@ Download the corresponding GPU vBios.
 
 Either dump it yourself using linux (amdvbflash for AMD nvflash for NVIDIA), GPU-Z using Windows or find one on https://www.techpowerup.com/vgabios/
 
-and enter `mkdir /var/lib/libvirt/vbios` in your terminal to make the directory for the vBios.
+and enter 
+`mkdir /usr/share/vgabios` 
+in your terminal to make the directory for the vBios.
 
 Now move the vBios in that folder and execute these commands:
 
