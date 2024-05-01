@@ -244,4 +244,4 @@ Save the file and exit
 
 You are now ready to start the vm.
 
-If you are having problems message me on Discord @ Mike12#2308 or create a Reddit post on [r/VFIO](https://old.reddit.com/r/VFIO/) and mention me in your post and I will try to help.
+If you are having problems message me on Discord @ mike_0769 or create a Reddit post on [r/VFIO](https://old.reddit.com/r/VFIO/)
